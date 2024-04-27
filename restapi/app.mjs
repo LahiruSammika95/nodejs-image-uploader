@@ -34,7 +34,7 @@ app.post("/imageupload/image", async (req, res) => {
 
   }
   catch (err) {
-    return res.status(500).json({ title, author });
+    return res.status(500).json({ "error":err });
   }
 
 

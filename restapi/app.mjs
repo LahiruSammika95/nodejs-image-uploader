@@ -1,5 +1,4 @@
 import express from "express";
-import cache from "./cache.mjs";
 import { v4 as uuidv4 } from "uuid";
 
 const app = express();

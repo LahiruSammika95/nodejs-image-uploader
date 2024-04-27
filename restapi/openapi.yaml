@@ -17,8 +17,8 @@ tags:
   - name: books
     description: In-memory book list cache API
 paths:
-  summary: List all books
   /books:
+    summary: List all books
     post:
       summary: Insert a new book
       operationId: SetNewBook

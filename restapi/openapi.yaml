@@ -17,7 +17,7 @@ tags:
   - name: books
     description: In-memory book list cache API
 paths:
-  /books:
+  /image:
     summary: List all books
     post:
       summary: Insert a new book
@@ -64,6 +64,7 @@ components:
         - title
         - author
         - status
+        - image
       properties:
         title:
           type: string
@@ -74,6 +75,9 @@ components:
         status:
           type: string
           example: "read"
+        image:
+          type: string
+          example: "image"
     StringArray:
       type: array
       items:

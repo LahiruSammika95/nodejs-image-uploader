@@ -1,5 +1,5 @@
 import express from "express";
-
+const { cloudinary } = require('./cloudinary');
 
 
 const app = express();
@@ -7,14 +7,29 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // add a book - request body should contain a title, status and an author
-app.post("/imageupload/books", (req, res) => {
+app.post("/imageupload/image", async (req, res) => {
   const { title, author, status } = req.body;
+  const fileStr = req.body.image;
  
   if (!title || !author || !status) {
     return res.status(400).json({ error: "Title, Status or Author is empty" });
   }
  
-  return res.status(201).json({ title, author });
+  try {
+
+    const uploadResponse = await cloudinary.uploader.upload(fileStr, {
+      upload_preset: 'ml_default',
+    });
+    const image = uploadResponse.url;
+    const image_id = uploadResponse.public_id;
+    return res.status(201).json({ image, image_id });
+
+  }
+  catch (err) {
+    return res.status(500).json({ title, author });
+  }
+
+
 });
 
 // health check

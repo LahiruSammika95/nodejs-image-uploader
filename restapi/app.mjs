@@ -16,13 +16,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // add a book - request body should contain a title, status and an author
 app.post("/imageupload/image", async (req, res) => {
-  const { title, author, status } = req.body;
+
   const fileStr = req.body.image;
- 
-  if (!title || !author || !status) {
-    return res.status(400).json({ error: "Title, Status or Author is empty" });
-  }
- 
+
   try {
 
     const uploadResponse = await cloudinary.uploader.upload(fileStr, {

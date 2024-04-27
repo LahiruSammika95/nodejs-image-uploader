@@ -14,21 +14,21 @@ externalDocs:
 servers:
   - url: http://localhost:8080
 tags:
-  - name: books
-    description: In-memory book list cache API
+  - name: image
+    description: upload images
 paths:
   /image:
-    summary: List all books
+    summary: Upload image
     post:
-      summary: Insert a new book
-      operationId: SetNewBook
+      summary: Insert a new image
+      operationId: SetNewImage
       responses:
         "200":
           description: Successful operation
         "400":
           description: Invalid request body
       tags:
-        - books
+        - image
       requestBody:
         content:
           application/json:
@@ -61,20 +61,8 @@ components:
     KeyValue:
       type: object
       required:
-        - title
-        - author
-        - status
         - image
       properties:
-        title:
-          type: string
-          example: "my-title"
-        author:
-          type: string
-          example: "my-author"
-        status:
-          type: string
-          example: "read"
         image:
           type: string
           example: "image"

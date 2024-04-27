@@ -7,7 +7,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // add a book - request body should contain a title, status and an author
-app.post("/reading-list/books", (req, res) => {
+app.post("/imageupload/books", (req, res) => {
   const { title, author, status } = req.body;
  
   if (!title || !author || !status) {

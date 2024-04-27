@@ -1,6 +1,7 @@
 import express from "express";
 
-const cloudinary = require('cloudinary').v2;
+import { v2 as cloudinary } from 'cloudinary'
+
 cloudinary.config({
     cloud_name: "dzfkeu1si",
     api_key: "287171622571245",

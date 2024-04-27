@@ -1,6 +1,6 @@
 import express from "express";
 
-import { v2 as cloudinary } from 'cloudinary'
+import { v2 as cloudinary } from 'cloudinary';
 
 cloudinary.config({
     cloud_name: "dzfkeu1si",

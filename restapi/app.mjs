@@ -26,7 +26,7 @@ app.post("/imageupload/image", async (req, res) => {
     });
     const image = uploadResponse.url;
     const image_id = uploadResponse.public_id;
-    return res.status(201).json({ image, image_id,"test":"test" });
+    return res.status(201).json({ image, image_id });
 
   }
   catch (err) {
